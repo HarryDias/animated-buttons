@@ -1,0 +1,178 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 20px;
+}
+
+.button {
+    position: relative;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #1a237e; /* Dark blue */
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+/* Button One: Left to Right */
+.button-one {
+    position: relative;
+    z-index: 1; /* Ensure text is above animation */
+}
+
+.button-one::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Start with no width */
+    height: 100%; /* Full height */
+    background-color: #64b5f6; /* Light blue */
+    z-index: -1; /* Place animation behind text */
+    transition: width 0.5s ease; /* Smooth animation */
+}
+
+.button-one:hover::after {
+    width: 100%; /* Fill width on hover */
+}
+
+/* Button Two: Right to Left */
+.button-two {
+    position: relative;
+    z-index: 1;
+}
+
+.button-two::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0; /* Start from the right */
+    width: 0; /* Start with no width */
+    height: 100%;
+    background-color: #64b5f6;
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+
+.button-two:hover::after {
+    width: 100%; /* Fill width from right to left */
+}
+
+/* Button Three: Bottom to Top */
+.button-three {
+    position: relative;
+    z-index: 1;
+}
+
+.button-three::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Start from the bottom */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 0; /* Start with no height */
+    background-color: #64b5f6;
+    z-index: -1;
+    transition: height 0.5s ease;
+}
+
+.button-three:hover::after {
+    height: 100%; /* Fill height from bottom to top */
+}
+
+/* Button Four: Top to Bottom */
+.button-four {
+    position: relative;
+    z-index: 1;
+}
+
+.button-four::after {
+    content: '';
+    position: absolute;
+    top: 0; /* Start from the top */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 0; /* Start with no height */
+    background-color: #64b5f6;
+    z-index: -1;
+    transition: height 0.5s ease;
+}
+
+.button-four:hover::after {
+    height: 100%; /* Fill height from top to bottom */
+}
+
+/* Button Five: Center to Both Sides */
+.button-five {
+    position: relative;
+    z-index: 1;
+}
+
+.button-five::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Start from the center */
+    width: 0; /* Start with no width */
+    height: 100%;
+    background-color: #64b5f6;
+    z-index: -1;
+    transition: width 0.5s ease, left 0.5s ease;
+}
+
+.button-five:hover::after {
+    left: 0; /* Expand outward from center */
+    width: 100%; /* Fill width */
+}
+
+/* Button Six: Left to Right & Right to Left (both animations) */
+.button-six {
+    position: relative;
+    z-index: 1; /* Ensure text is above animation */
+}
+
+.button-six::after,
+.button-six::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%; /* Full height */
+    background-color: #64b5f6; /* Light blue */
+    z-index: -1; /* Place animation behind text */
+    transition: width 1s ease; /* Increased duration to slow down */
+}
+
+/* Left to Right animation (button-one style) */
+.button-six::after {
+    left: 0;
+    width: 0; /* Start with no width */
+}
+
+/* Right to Left animation (button-two style) */
+.button-six::before {
+    right: 0;
+    width: 0; /* Start with no width */
+}
+
+/* On hover: both fill at the same time */
+.button-six:hover::after {
+    width: 100%; /* Fill from left to right */
+}
+
+.button-six:hover::before {
+    width: 100%; /* Fill from right to left */
+}
